@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 
 export class ProductsService {
-    private apiUrl = 'https://github.com/talyafedoriv/talyafedoriv.github.io/blob/main/json/db.json';
+    private apiUrl = 'https://talyafedoriv.github.io/db.json';
   
     constructor(private http: HttpClient) { 
 

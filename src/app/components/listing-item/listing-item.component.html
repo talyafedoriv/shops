@@ -1,0 +1,24 @@
+<div class="product" [ngClass]="{ discounted: item.discount !== '' }">
+  <img [src]="item.images" alt="{{ item.name }}" />
+
+  <h2>{{ item.name }}</h2>
+
+  <p>{{ item.brand }}</p>
+  <p>{{ item.type }}</p>
+  <p>{{ item.size }}</p>
+
+  <p *ngIf="item.discount !== ''">
+    <del>{{ item.price }} UAH</del>
+    <span class="mark">-{{ item.discount }}%</span>
+  </p>
+
+  <p *ngIf="item.discount !== ''" class="discounted-price">
+    {{ (item.price * (100 - item.discount)) / 100 | number : "1.0-2" }} UAH
+  </p>
+
+  <p *ngIf="item.discount === ''">
+    <span *ngIf="item.price !== ''">{{ item.price }} UAH</span>
+  </p>
+
+  <button>Add to Cart</button>
+</div>

@@ -1,0 +1,14 @@
+<div class="home">
+  <div class="header-block">
+    <h1>A modern parfume shop</h1>
+    <p>with heart + soul</p>
+  </div>
+
+  <div class="product-container">
+    <div class="product" *ngFor="let product of products">
+      <a [routerLink]="['/details', product.id]">
+        <app-listing-item [item]="product"></app-listing-item>
+      </a>
+    </div>
+  </div>
+</div>

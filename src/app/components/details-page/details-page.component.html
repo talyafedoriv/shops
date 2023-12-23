@@ -1,0 +1,38 @@
+<div class="details-page">
+  <div>
+    <h1>Product Details</h1>
+  </div>
+
+  <div *ngIf="selectedProduct" class="product">
+    <img [src]="selectedProduct.images" alt="{{ selectedProduct.name }}" />
+    <div class="product-description">
+      <h2>{{ selectedProduct.name }}</h2>
+
+      <p>{{ selectedProduct.brand }}</p>
+      <p>{{ selectedProduct.type }}</p>
+      <p>Size: {{ selectedProduct.size }}</p>
+      <p>Country of origin: {{ selectedProduct.country }}</p>
+      <p>Aroma group: {{ selectedProduct.aroma }}</p>
+      <p>Gender: {{ selectedProduct.gender }}</p>
+      <p *ngIf="selectedProduct.discount !== ''">
+        <del>{{ selectedProduct.price }} UAH</del>
+        <span class="mark">-{{ selectedProduct.discount }}%</span>
+      </p>
+
+      <p *ngIf="selectedProduct.discount !== ''" class="discounted-price">
+        {{
+          (selectedProduct.price * (100 - selectedProduct.discount)) / 100
+            | number : "1.0-2"
+        }}
+        UAH
+      </p>
+
+      <p *ngIf="selectedProduct.discount === ''">
+        <span *ngIf="selectedProduct.price !== ''"
+          >{{ selectedProduct.price }} UAH</span
+        >
+      </p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+</div>

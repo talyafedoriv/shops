@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <a class="logo" routerLink="/">Harmony</a>
+  <div class="burger-menu" (click)="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="nav-links" [ngClass]="{ 'show-menu': isMenuOpen }">
+    <a
+      (click)="closeMenu()"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a (click)="closeMenu()" routerLink="/sales" routerLinkActive="active"
+      >Sales</a
+    >
+    <a (click)="closeMenu()" routerLink="/shops" routerLinkActive="active"
+      >Shops</a
+    >
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+<div class="shop-page">
+  <h1>Store Addresses in Ukraine</h1>
+
+  <div class="container">
+    <div *ngFor="let shop of shops" class="shop-item">
+      <p>
+        Address:
+        <a
+          [href]="'https://www.google.com/maps/place/' + shop.address"
+          target="_blank"
+        >
+          {{ shop.address }}
+        </a>
+      </p>
+      <p>Shopping Center: {{ shop.shoppingCenter }}</p>
+      <p>Working Hours: {{ shop.workingHours }}</p>
+      <p>
+        Phone Number:
+        <a href="tel:{{ shop.phoneNumber }}">{{ shop.phoneNumber }}</a>
+      </p>
+    </div>
+  </div>
+</div>

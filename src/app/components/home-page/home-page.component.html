@@ -1,14 +1,32 @@
-<div class="home">
-  <div class="header-block">
+<div class="home-page">
+  <div class="header-section">
     <h1>A modern parfume shop</h1>
     <p>with heart + soul</p>
   </div>
 
-  <div class="product-container">
-    <div class="product" *ngFor="let product of products">
-      <a [routerLink]="['/details', product.id]">
-        <app-listing-item [item]="product"></app-listing-item>
-      </a>
+  <div class="product-section">
+    <h2>Best Selling Product</h2>
+
+    <input
+      class="filter"
+      type="text"
+      id="filterInput"
+      placeholder="Enter the name of the product..."
+      [(ngModel)]="term"
+    />
+
+    <div class="product-container">
+      <div
+        class="product"
+        [ngClass]="{
+          filtered: term && (products | filterProducts : term).length === 1
+        }"
+        *ngFor="let product of products | filterProducts : term"
+      >
+        <a [routerLink]="['/details', product.id]">
+          <app-listing-item [item]="product"></app-listing-item>
+        </a>
+      </div>
     </div>
   </div>
 </div>

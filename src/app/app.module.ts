@@ -12,7 +12,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ListingItemComponent } from './components/listing-item/listing-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './services/products.service';
-
+import { FormsModule } from '@angular/forms';
+import { FilterProductsPipe } from './pipes/filter-products.pipe';
 
 
 @NgModule({
@@ -23,12 +24,14 @@ import { ProductsService } from './services/products.service';
     SalesPageComponent,
     DetailsPageComponent,
     NavigationComponent,
-    ListingItemComponent
+    ListingItemComponent,
+    FilterProductsPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

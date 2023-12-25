@@ -9,6 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomePageComponent implements OnInit {
   products: any[] = [];
   productsWithoutDiscount: any[] = [];
+  term=''
 
   constructor(private productsService: ProductsService) {}
 

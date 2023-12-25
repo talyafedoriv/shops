@@ -10,7 +10,6 @@ export class ProductsService {
     private apiUrl = 'http://localhost:3000/products';
   
     constructor(private http: HttpClient) { 
-
     }
 
     getProducts(): Observable<any[]> {

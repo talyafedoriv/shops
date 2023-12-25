@@ -1,8 +1,13 @@
+<!-- shops-page.component.html -->
 <div class="shop-page">
   <h1>Store Addresses in Ukraine</h1>
 
   <div class="container">
-    <div *ngFor="let shop of shops" class="shop-item">
+    <div
+      *ngFor="let shop of shops"
+      class="shop-item"
+      [ngClass]="{ 'show-map': shop.showMap }"
+    >
       <p>
         Address:
         <a
@@ -18,6 +23,18 @@
         Phone Number:
         <a href="tel:{{ shop.phoneNumber }}">{{ shop.phoneNumber }}</a>
       </p>
+      <div class="map-container">
+        <iframe
+          [src]="shop.mapUrl"
+          width="400"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <button (click)="toggleMapVisibility(shop)">Show Map</button>
     </div>
   </div>
 </div>
